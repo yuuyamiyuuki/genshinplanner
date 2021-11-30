@@ -19,13 +19,3 @@ P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 o
 ?app/src/main/java/com/br/genshinplanner/CalendarViewHolder.java,f\a\fada6aaef9a085c51b9333a6b181d3618d71072d
-j
-:app/src/main/java/com/br/genshinplanner/CalendarUtils.java,9\a\9a7419006580727523a4f6b68cad38a78e35aec0
-l
-<app/src/main/java/com/br/genshinplanner/CalendarAdapter.java,3\f\3f5bbe06e84fc48fd140d6f34ce7d32b28f89181
-b
-2app/src/main/java/com/br/genshinplanner/Event.java,4\c\4c0b6f26135e95dee39ca04f0640e4d0abc967cd
-n
->app/src/main/java/com/br/genshinplanner/EventEditActivity.java,c\4\c457c847758cfe1b703fc91f3c9cf50c0aac83f1
-i
-9app/src/main/java/com/br/genshinplanner/EventAdapter.java,a\9\a9cfd586b5a3fda594abc355ffc4181cb233d9a2

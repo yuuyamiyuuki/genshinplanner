@@ -1,14 +1,0 @@
-
-P
-java:S1118
-":Add a private constructor to hide the implicit public one.(ŠŒÿ
-‹
-java:S1319 "pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ê¹ïÏÿÿÿÿÿ
-†
-java:S13194"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ğÑê¯
-s
-java:S1104"XMake selectedDate a static final constant or non-public and provide accessors if needed.(¿“Áêüÿÿÿÿ
-M
-java:S1444"2Make this "public static selectedDate" field final(¿“Áêüÿÿÿÿ
-`
-java:S22598"EA "NullPointerException" could be thrown; "current" is nullable here.(çÄ…¨ûÿÿÿÿ

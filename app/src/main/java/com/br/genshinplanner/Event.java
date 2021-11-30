@@ -33,6 +33,7 @@ public class Event {
     private LocalDate date;
     private LocalTime time;
     private String resinSpent;
+    private String domain;
 }
 
 

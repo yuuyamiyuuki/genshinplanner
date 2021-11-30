@@ -2,4 +2,27 @@
     <string name="app_name">GenshinPlanner</string>
     <string name="back"><![CDATA[<-]]></string>
     <string name="forward"><![CDATA[->]]></string>
+    <string-array name="domains">
+        <item>Cecilia Garden</item>
+        <item>Hidden Palace of Lianshan Formula</item>
+        <item>Court of Flowing Sand</item>
+
+        <item>Forsaken Rift</item>
+        <item>Taishan Mansion</item>
+        <item>Violet Court</item>
+
+        <item>Midsummer Courtyard</item>
+        <item>Valley of Remembrance</item>
+        <item>Peak of Vindagnyr</item>
+
+        <item>Domain of Guyun</item>
+        <item>Hidden Palace of Zhou Formula</item>
+        <item>Clear Pool and Mountain Cavern</item>
+        <item>Ridge Watch</item>
+
+        <item>Momiji-Dyed Court</item>
+        <item>Slumbering Court</item>
+
+    </string-array>
+
 </resources>
