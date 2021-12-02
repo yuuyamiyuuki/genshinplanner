@@ -51,7 +51,7 @@
         android:textSize="20sp"
         android:fontFamily="@font/genshinfont"
         android:ems="10"
-        android:inputType="text"/>
+        android:inputType="number" />
 
 
     <TextView
