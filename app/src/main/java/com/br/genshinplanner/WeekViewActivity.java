@@ -9,20 +9,23 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-import static com.br.genshinplanner.CalendarUtils.daysInMonthArray;
 import static com.br.genshinplanner.CalendarUtils.daysInWeekArray;
 import static com.br.genshinplanner.CalendarUtils.monthYearFromDate;
+
+import com.br.genshinplanner.sqlite.DAO;
 
 public class WeekViewActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener
 {
     private TextView monthYearText;
     private RecyclerView calendarRecyclerView;
     private ListView eventListView;
+    private DAO dao = new DAO(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -81,7 +84,18 @@ public class WeekViewActivity extends AppCompatActivity implements CalendarAdapt
 
     private void setEventAdpater()
     {
-        ArrayList<Event> dailyEvents = Event.eventsForDate(CalendarUtils.selectedDate);
+        List<EventEntity> dailyEvents;
+        if(Objects.nonNull(CalendarUtils.selectedDate)) {
+            dailyEvents = dao.getAllByDate(CalendarUtils.selectedDate);
+        }
+        else{
+            dailyEvents = dao.getAllByDate(LocalDate.now());
+        }
+
+        if(Objects.isNull(dailyEvents)){
+            dailyEvents = new ArrayList<>();
+        }
+
         EventAdapter eventAdapter = new EventAdapter(getApplicationContext(), dailyEvents);
         eventListView.setAdapter(eventAdapter);
     }

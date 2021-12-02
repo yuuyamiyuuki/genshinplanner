@@ -11,17 +11,20 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.br.genshinplanner.sqlite.DAO;
+
+import java.sql.SQLException;
 import java.time.LocalTime;
 
 public class EventEditActivity extends AppCompatActivity
 {
-    private EditText eventNameET;
     private EditText resinToSpendET;
     private TextView eventDateTV;
     private TextView eventTimeTV;
     private Spinner eventSpinner;
-
+    private DomainAdapter domainAdapter;
     private LocalTime time;
+    private DAO dao = new DAO(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -36,19 +39,16 @@ public class EventEditActivity extends AppCompatActivity
 
     private void initWidgets()
     {
-        eventNameET = findViewById(R.id.eventNameET);
         eventDateTV = findViewById(R.id.eventDateTV);
         eventTimeTV = findViewById(R.id.eventTimeTV);
         resinToSpendET = findViewById(R.id.eventResin);
         eventSpinner = findViewById(R.id.eventSpinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.domains, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        eventSpinner.setAdapter(adapter);
+        domainAdapter = new DomainAdapter(this, Domain.getDomains());
+        eventSpinner.setAdapter(domainAdapter);
         eventSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int position, long id) {
-                Log.v("item", (String) parent.getItemAtPosition(position));
             }
 
             @Override
@@ -59,13 +59,16 @@ public class EventEditActivity extends AppCompatActivity
 
     }
 
-    public void saveEventAction(View view)
-    {
-        String eventName = eventNameET.getText().toString();
+    public void saveEventAction(View view) throws SQLException {
         String resinToSpend = resinToSpendET.getText().toString();
-        String itemSelected = eventSpinner.getSelectedItem().toString();
-        Event newEvent = new Event(eventName, CalendarUtils.selectedDate, time, resinToSpend, itemSelected);
-        Event.eventsList.add(newEvent);
+        Integer itemSelected =  (Integer) eventSpinner.getSelectedItem();
+        Domain domain = Domain.getDomains().get(itemSelected);
+
+        dao.addOne(EventEntity.builder()
+                .date(CalendarUtils.selectedDate)
+                .resinSpent(Integer.parseInt(resinToSpend))
+                .domain(domain.getDomainName())
+                .build());
         finish();
     }
 
