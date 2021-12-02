@@ -12,6 +12,7 @@
         android:id="@+id/cellDayText"
         android:text="1"
         android:textSize="20sp"
+        android:fontFamily="@font/genshinfont"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"

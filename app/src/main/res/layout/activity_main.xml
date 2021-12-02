@@ -14,6 +14,7 @@
         android:layout_gravity="center"
         android:text="Weekly"
         android:textColor="@color/blue"
+        android:fontFamily="@font/genshinfont"
         android:background="@null"
         android:textStyle="bold"
         android:onClick="weeklyAction"
@@ -24,6 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:fontFamily="@font/genshinfont"
         android:layout_marginBottom="20dp"
         android:layout_marginTop="20dp">
 
@@ -32,6 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/back"
+            android:fontFamily="@font/genshinfont"
             android:textColor="@color/blue"
             android:background="@null"
             android:textStyle="bold"
@@ -44,6 +47,7 @@
             android:layout_weight="2"
             android:layout_height="wrap_content"
             android:text="Feb 2021"
+            android:fontFamily="@font/genshinfont"
             android:textSize="20sp"
             android:textAlignment="center"
             android:textColor="@color/black"/>
@@ -54,6 +58,7 @@
             android:layout_weight="1"
             android:text="@string/forward"
             android:textColor="@color/blue"
+            android:fontFamily="@font/genshinfont"
             android:background="@null"
             android:textStyle="bold"
             android:onClick="nextMonthAction"
@@ -72,6 +77,7 @@
             android:layout_weight="1"
             android:text="SUN"
             android:textColor="@color/gray"
+            android:fontFamily="@font/genshinfont"
             android:textAlignment="center"
             android:textSize="16sp"/>
 
@@ -81,6 +87,7 @@
             android:layout_weight="1"
             android:text="MON"
             android:textColor="@color/gray"
+            android:fontFamily="@font/genshinfont"
             android:textAlignment="center"
             android:textSize="16sp"/>
 
@@ -90,6 +97,7 @@
             android:layout_weight="1"
             android:text="TUE"
             android:textColor="@color/gray"
+            android:fontFamily="@font/genshinfont"
             android:textAlignment="center"
             android:textSize="16sp"/>
 
@@ -100,6 +108,7 @@
             android:text="WED"
             android:textColor="@color/gray"
             android:textAlignment="center"
+            android:fontFamily="@font/genshinfont"
             android:textSize="16sp"/>
 
         <TextView
@@ -107,6 +116,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="THUR"
+            android:fontFamily="@font/genshinfont"
             android:textColor="@color/gray"
             android:textAlignment="center"
             android:textSize="16sp"/>
@@ -117,6 +127,7 @@
             android:layout_weight="1"
             android:text="FRI"
             android:textColor="@color/gray"
+            android:fontFamily="@font/genshinfont"
             android:textAlignment="center"
             android:textSize="16sp"/>
 
@@ -127,6 +138,7 @@
             android:text="SAT"
             android:textColor="@color/gray"
             android:textAlignment="center"
+            android:fontFamily="@font/genshinfont"
             android:textSize="16sp"/>
 
 

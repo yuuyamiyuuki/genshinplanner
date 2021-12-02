@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="60dp">
 
-    <TextView
+    <ImageView
+        android:id="@+id/eventCellIV"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:layout_marginStart="20dp"
+        android:gravity="left" />
+
+    <TextView
         android:id="@+id/eventCellTV"
-        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="20dp"
+        android:gravity="center"
+        android:text="Event"
+        android:fontFamily="@font/genshinfont"
         android:textColor="@color/black"
-        android:text="Event"/>
+        android:textSize="20sp" />
 
 </LinearLayout>

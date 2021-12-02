@@ -78,5 +78,4 @@ public class Domain {
 
         return domainList;
     }
-
 }

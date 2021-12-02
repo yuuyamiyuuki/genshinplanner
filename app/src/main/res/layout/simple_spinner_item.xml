@@ -15,6 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
+        android:fontFamily="@font/genshinfont"
         android:textSize="20sp"
         android:textAlignment="center"
         android:textColor="@color/black"/>

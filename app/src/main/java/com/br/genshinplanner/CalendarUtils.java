@@ -11,6 +11,7 @@ import java.util.Objects;
 public class CalendarUtils
 {
     public static LocalDate selectedDate;
+    public static LocalTime selectedTime;
 
     public static String formattedDate(LocalDate date)
     {
@@ -31,7 +32,12 @@ public class CalendarUtils
     public static String monthYearFromDate(LocalDate date)
     {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM yyyy");
-        return date.format(formatter);
+        if(Objects.nonNull(date)) {
+            return date.format(formatter);
+        }
+        else{
+            return "";
+        }
     }
 
     public static ArrayList<LocalDate> daysInMonthArray(LocalDate date)

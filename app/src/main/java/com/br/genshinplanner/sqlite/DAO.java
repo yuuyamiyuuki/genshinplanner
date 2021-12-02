@@ -68,7 +68,7 @@ public class DAO extends SQLiteOpenHelper {
                     entry.setTime(LocalTime.parse(cursor.getString(2)));
                 }
                 entry.setResinSpent(cursor.getInt(3));
-                entry.setDomain(cursor.getString(3));
+                entry.setDomain(cursor.getString(4));
                 entries.add(entry);
 
             }
