@@ -5,6 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="60dp">
 
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="52dp"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:drawableLeft="@drawable/trashbin"
+        android:fontFamily="@font/genshinfont"
+        android:onClick="saveEventAction"
+        android:padding="10dp"
+        android:textColor="@color/blue"
+        android:textStyle="bold" />
+
     <ImageView
         android:id="@+id/eventCellIV"
         android:layout_width="wrap_content"
@@ -15,11 +27,12 @@
         android:id="@+id/eventCellTV"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="0dp"
+        android:fontFamily="@font/genshinfont"
         android:gravity="center"
         android:text="Event"
-        android:fontFamily="@font/genshinfont"
         android:textColor="@color/black"
-        android:textSize="20sp" />
+        android:textSize="15sp" />
+
 
 </LinearLayout>
