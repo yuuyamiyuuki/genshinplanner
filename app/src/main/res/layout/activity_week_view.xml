@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="0dp"
         android:layout_marginTop="20dp">
 
         <Button
@@ -49,6 +49,26 @@
             android:textStyle="bold"
             android:onClick="nextWeekAction"
             android:textSize="20sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="0dp"
+        android:layout_marginTop="0dp">
+
+        <TextView
+            android:id="@+id/weekResin"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:text="@string/week_resin_resin"
+            android:textSize="15sp"
+            android:textAlignment="center"
+            android:fontFamily="@font/genshinfont"
+            android:textColor="@color/black"/>
 
     </LinearLayout>
 

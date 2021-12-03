@@ -2,6 +2,7 @@
     <string name="app_name">GenshinPlanner</string>
     <string name="back"><![CDATA[<-]]></string>
     <string name="forward"><![CDATA[->]]></string>
+    <string name="week_resin_resin">Week Resin: {{resin}}</string>
     <string-array name="domains">
 
         <item>Midsummer Courtyard</item>

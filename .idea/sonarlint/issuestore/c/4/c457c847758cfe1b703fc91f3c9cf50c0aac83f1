@@ -1,0 +1,27 @@
+
+=
+java:S1659!""Declare "mMin" on a separate line.(Ý¾¤Áøÿÿÿÿ
+w
+java:S1450"\Remove the "domainAdapter" field and declare it as a local variable in the relevant methods.(åËë´üÿÿÿÿ
+u
+java:S1450 "_Remove the "timePickerButton" field and declare it as a local variable in the relevant methods.(¶é…·
+œ
+java:S1186<"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ö¿ªãýÿÿÿÿ
+M
+java:S1135B"2Complete the task associated to this TODO comment.(» æžÿÿÿÿÿ
+X
+java:S2696N"6Make the enclosing method "static" or remove this set.(‡óæÜøÿÿÿÿ8«ÕÎç×/
+Z
+java:S1854Z"8Remove this useless assignment to local variable "time".(òÏ®Ãúÿÿÿÿ8ôÔÂæ×/
+
+java:S1130W"nRemove the declaration of thrown exception 'java.sql.SQLException', as it cannot be thrown from method's body.(‡Æô“úÿÿÿÿ8­ÕÎç×/
+F
+java:S1172W"+Remove this unused method parameter "view".(‡Æô“úÿÿÿÿ
+S
+java:S1117Z"8Rename "time" which hides the field declared at line 34.(òÏ®Ãúÿÿÿÿ
+K
+java:S1481Z")Remove this unused "time" local variable.(òÏ®Ãúÿÿÿÿ8õÔÂæ×/
+C
+java:S1604I"(Make this anonymous inner class a lambda(ê„­…ùÿÿÿÿ
+C
+java:S1604F"(Make this anonymous inner class a lambda(£ï¿Æÿÿÿÿÿ

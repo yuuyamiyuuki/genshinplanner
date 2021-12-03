@@ -25,6 +25,7 @@ public class WeekViewActivity extends AppCompatActivity implements CalendarAdapt
     private TextView monthYearText;
     private RecyclerView calendarRecyclerView;
     private ListView eventListView;
+    private TextView weekResin;
     private DAO dao = new DAO(this);
 
     @Override
@@ -41,29 +42,42 @@ public class WeekViewActivity extends AppCompatActivity implements CalendarAdapt
         calendarRecyclerView = findViewById(R.id.calendarRecyclerView);
         monthYearText = findViewById(R.id.monthYearTV);
         eventListView = findViewById(R.id.eventListView);
+        weekResin = findViewById(R.id.weekResin);
     }
 
     private void setWeekView()
     {
         monthYearText.setText(monthYearFromDate(CalendarUtils.selectedDate));
         ArrayList<LocalDate> days = daysInWeekArray(CalendarUtils.selectedDate);
+        List<EventEntity> weekEvents = new ArrayList<>();
+        Integer resin = 0;
+        String resinCounter = weekResin.getText().toString();
+        days.forEach(day -> weekEvents.addAll(dao.getAllByDate(day)));
+        for(EventEntity event : weekEvents){
+            resin += event.getResinSpent();
+        }
+        resinCounter = resinCounter.replace("{{resin}}", resin.toString());
+        weekResin.setText(resinCounter);
 
         CalendarAdapter calendarAdapter = new CalendarAdapter(days, this);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 7);
         calendarRecyclerView.setLayoutManager(layoutManager);
         calendarRecyclerView.setAdapter(calendarAdapter);
+        calendarAdapter.notifyDataSetChanged();
         setEventAdpater();
     }
 
 
     public void previousWeekAction(View view)
     {
+        weekResin.setText(R.string.week_resin_resin);
         CalendarUtils.selectedDate = CalendarUtils.selectedDate.minusWeeks(1);
         setWeekView();
     }
 
     public void nextWeekAction(View view)
     {
+        weekResin.setText(R.string.week_resin_resin);
         CalendarUtils.selectedDate = CalendarUtils.selectedDate.plusWeeks(1);
         setWeekView();
     }
@@ -104,4 +118,5 @@ public class WeekViewActivity extends AppCompatActivity implements CalendarAdapt
     {
         startActivity(new Intent(this, EventEditActivity.class));
     }
+
 }
