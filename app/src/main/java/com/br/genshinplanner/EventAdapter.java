@@ -1,5 +1,7 @@
 package com.br.genshinplanner;
 
+import static com.br.genshinplanner.CalendarUtils.daysInWeekArray;
+
 import android.content.Context;
 import android.content.Intent;
 import android.media.Image;
@@ -18,6 +20,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.br.genshinplanner.sqlite.DAO;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,6 +29,7 @@ public class EventAdapter extends ArrayAdapter<EventEntity>
 {
     private Context eventContext;
     private EventAdapter adapter;
+    private WeekViewActivity weekViewActivity;
 
     public EventAdapter(@NonNull Context context, List<EventEntity> events)
     {
@@ -60,6 +65,19 @@ public class EventAdapter extends ArrayAdapter<EventEntity>
                     dao.deleteOne(event.getId());
                     adapter.remove(event);
                     adapter.notifyDataSetChanged();
+                    View parentView = parent.getRootView();
+                    TextView weekResin = parentView.findViewById(R.id.weekResin);
+                    weekResin.setText(R.string.week_resin_resin);
+                    ArrayList<LocalDate> days = daysInWeekArray(CalendarUtils.selectedDate);
+                    List<EventEntity> weekEvents = new ArrayList<>();
+                    Integer resin = 0;
+                    String resinCounter = weekResin.getText().toString();
+                    days.forEach(day -> weekEvents.addAll(dao.getAllByDate(day)));
+                    for(EventEntity event : weekEvents){
+                        resin += event.getResinSpent();
+                    }
+                    resinCounter = resinCounter.replace("{{resin}}", resin.toString());
+                    weekResin.setText(resinCounter);
             }
         });
         return convertView;

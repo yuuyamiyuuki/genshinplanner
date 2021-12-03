@@ -3,6 +3,7 @@ package com.br.genshinplanner;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -43,6 +44,7 @@ public class EventEditActivity extends AppCompatActivity
         time = LocalTime.now();
         eventDateTV.setText("Date: " + CalendarUtils.formattedDate(CalendarUtils.selectedDate));
         eventTimeTV.setText("Time: " + CalendarUtils.formattedTime(time));
+        CalendarUtils.selectedTime = time;
     }
 
     private void initWidgets()
@@ -87,8 +89,6 @@ public class EventEditActivity extends AppCompatActivity
     public void saveEventAction(View view) throws SQLException {
         String resinToSpend = resinToSpendET.getText().toString();
         Integer itemSelected =  (Integer) eventSpinner.getSelectedItem();
-        String time = eventTimeTV.getText().toString();
-
         Domain domain = Domain.getDomains().get(itemSelected);
 
         dao.addOne(EventEntity.builder()
@@ -97,6 +97,8 @@ public class EventEditActivity extends AppCompatActivity
                 .resinSpent(Integer.parseInt(resinToSpend))
                 .domain(domain.getDomainName())
                 .build());
+
+
         finish();
     }
 

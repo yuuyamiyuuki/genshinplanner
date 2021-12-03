@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -25,8 +26,8 @@ public class WeekViewActivity extends AppCompatActivity implements CalendarAdapt
     private TextView monthYearText;
     private RecyclerView calendarRecyclerView;
     private ListView eventListView;
-    private TextView weekResin;
-    private DAO dao = new DAO(this);
+    public TextView weekResin;
+    private final DAO dao = new DAO(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -49,16 +50,7 @@ public class WeekViewActivity extends AppCompatActivity implements CalendarAdapt
     {
         monthYearText.setText(monthYearFromDate(CalendarUtils.selectedDate));
         ArrayList<LocalDate> days = daysInWeekArray(CalendarUtils.selectedDate);
-        List<EventEntity> weekEvents = new ArrayList<>();
-        Integer resin = 0;
-        String resinCounter = weekResin.getText().toString();
-        days.forEach(day -> weekEvents.addAll(dao.getAllByDate(day)));
-        for(EventEntity event : weekEvents){
-            resin += event.getResinSpent();
-        }
-        resinCounter = resinCounter.replace("{{resin}}", resin.toString());
-        weekResin.setText(resinCounter);
-
+        updateWeekResin();
         CalendarAdapter calendarAdapter = new CalendarAdapter(days, this);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 7);
         calendarRecyclerView.setLayoutManager(layoutManager);
@@ -94,6 +86,7 @@ public class WeekViewActivity extends AppCompatActivity implements CalendarAdapt
     {
         super.onResume();
         setEventAdpater();
+        setWeekView();
     }
 
     private void setEventAdpater()
@@ -117,6 +110,22 @@ public class WeekViewActivity extends AppCompatActivity implements CalendarAdapt
     public void newEventAction(View view)
     {
         startActivity(new Intent(this, EventEditActivity.class));
+    }
+
+
+    private void updateWeekResin(){
+        weekResin = findViewById(R.id.weekResin);
+        weekResin.setText(R.string.week_resin_resin);
+        ArrayList<LocalDate> days = daysInWeekArray(CalendarUtils.selectedDate);
+        List<EventEntity> weekEvents = new ArrayList<>();
+        Integer resin = 0;
+        String resinCounter = weekResin.getText().toString();
+        days.forEach(day -> weekEvents.addAll(dao.getAllByDate(day)));
+        for(EventEntity event : weekEvents){
+            resin += event.getResinSpent();
+        }
+        resinCounter = resinCounter.replace("{{resin}}", resin.toString());
+        weekResin.setText(resinCounter);
     }
 
 }
