@@ -72,7 +72,7 @@ public class EventEditActivity extends AppCompatActivity
         timePickerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                TimePickerDialog timePickerDialog = new TimePickerDialog(EventEditActivity.this, new TimePickerDialog.OnTimeSetListener(){
+                TimePickerDialog timePickerDialog = new TimePickerDialog(EventEditActivity.this, R.style.TimePickerTheme, new TimePickerDialog.OnTimeSetListener(){
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute){
                         time = LocalTime.of(hourOfDay, minute, 0);
