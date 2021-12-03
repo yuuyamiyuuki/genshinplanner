@@ -29,7 +29,6 @@ public class EventAdapter extends ArrayAdapter<EventEntity>
 {
     private Context eventContext;
     private EventAdapter adapter;
-    private WeekViewActivity weekViewActivity;
 
     public EventAdapter(@NonNull Context context, List<EventEntity> events)
     {
