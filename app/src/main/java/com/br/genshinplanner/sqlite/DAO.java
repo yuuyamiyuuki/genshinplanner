@@ -46,11 +46,9 @@ public class DAO extends SQLiteOpenHelper {
         cv.put("domain", model.getDomain());
 
         db.insert("EVENT", null, cv);
-        System.out.println(cv);
     }
 
     public List<EventEntity> getAllByDate(LocalDate date){
-        System.out.println(date);
         List<EventEntity> entries = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
         String[] params = new String[]{ date.toString() };
@@ -60,11 +58,9 @@ public class DAO extends SQLiteOpenHelper {
                 EventEntity entry = new EventEntity();
                 entry.setId(cursor.getInt(0));
                 if(Objects.nonNull(cursor.getString(1))) {
-                    System.out.println(cursor.getString(1));
                     entry.setDate(LocalDate.parse(cursor.getString(1)));
                 }
                 if(Objects.nonNull(cursor.getString(2))) {
-                    System.out.println(cursor.getString(2));
                     entry.setTime(LocalTime.parse(cursor.getString(2)));
                 }
                 entry.setResinSpent(cursor.getInt(3));
