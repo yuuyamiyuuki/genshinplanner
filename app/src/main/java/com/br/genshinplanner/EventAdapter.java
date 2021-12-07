@@ -2,9 +2,12 @@ package com.br.genshinplanner;
 
 import static com.br.genshinplanner.CalendarUtils.daysInWeekArray;
 
+import android.app.AlarmManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.Image;
+import android.provider.AlarmClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,6 +80,13 @@ public class EventAdapter extends ArrayAdapter<EventEntity>
                     }
                     resinCounter = resinCounter.replace("{{resin}}", resin.toString());
                     weekResin.setText(resinCounter);
+
+                    Intent intent = new Intent(AlarmClock.ACTION_DISMISS_ALARM);
+                    intent.putExtra(AlarmClock.EXTRA_ALARM_SEARCH_MODE, AlarmClock.ALARM_SEARCH_MODE_LABEL);
+                    intent.putExtra(AlarmClock.EXTRA_MESSAGE,event.getId() +"!"+event.getDomain() + " - Resin: " + event.getResinSpent());
+                    intent.putExtra(AlarmClock.EXTRA_SKIP_UI, true);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    eventContext.startActivity(intent);
             }
         });
         return convertView;

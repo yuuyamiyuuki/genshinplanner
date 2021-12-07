@@ -32,7 +32,7 @@ public class DAO extends SQLiteOpenHelper {
 
     }
 
-    public void addOne(EventEntity model){
+    public EventEntity addOne(EventEntity model){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -44,8 +44,8 @@ public class DAO extends SQLiteOpenHelper {
         }
         cv.put("resinSpent", model.getResinSpent());
         cv.put("domain", model.getDomain());
-
-        db.insert("EVENT", null, cv);
+        Long id = db.insert("EVENT", null, cv);
+        return this.getOne(id.intValue());
     }
 
     public List<EventEntity> getAllByDate(LocalDate date){
@@ -70,12 +70,35 @@ public class DAO extends SQLiteOpenHelper {
             }
             while (cursor.moveToNext());
         }
-
+        cursor.close();
         return entries;
     }
 
     public void deleteOne(Integer id){
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete("EVENT", "ID=?", new String[] { String.valueOf(id) });
+    }
+
+    public EventEntity getOne(Integer id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String[] params = new String[]{ id.toString() };
+        Cursor cursor = db.rawQuery( "SELECT * FROM EVENT WHERE ID = ?",params);
+        EventEntity entry = new EventEntity();
+        try {
+            if (cursor.moveToFirst()) {
+                entry.setId(cursor.getInt(0));
+                if(Objects.nonNull(cursor.getString(1))) {
+                    entry.setDate(LocalDate.parse(cursor.getString(1)));
+                }
+                if(Objects.nonNull(cursor.getString(2))) {
+                    entry.setTime(LocalTime.parse(cursor.getString(2)));
+                }
+                entry.setResinSpent(cursor.getInt(3));
+                entry.setDomain(cursor.getString(4));
+            }
+        } finally {
+            cursor.close();
+        }
+        return entry;
     }
 }

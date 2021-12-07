@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.AlarmClock;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -93,13 +95,21 @@ public class EventEditActivity extends AppCompatActivity
         Integer itemSelected =  (Integer) eventSpinner.getSelectedItem();
         Domain domain = Domain.getDailyDomains(CalendarUtils.selectedDate).get(itemSelected);
 
-        dao.addOne(EventEntity.builder()
+        EventEntity event = dao.addOne(EventEntity.builder()
                 .date(CalendarUtils.selectedDate)
                 .time(CalendarUtils.selectedTime)
                 .resinSpent(Integer.parseInt(resinToSpend))
                 .domain(domain.getDomainName())
                 .build());
 
+        Intent intent = new Intent(AlarmClock.ACTION_SET_ALARM);
+        intent.putExtra(AlarmClock.EXTRA_HOUR, CalendarUtils.selectedTime.getHour());
+        intent.putExtra(AlarmClock.EXTRA_DAYS, "");
+        intent.putExtra(AlarmClock.EXTRA_MINUTES, CalendarUtils.selectedTime.getMinute());
+        intent.putExtra(AlarmClock.EXTRA_MESSAGE, event.getId() +"!"+domain.getDomainName() + " - Resin: " + resinToSpend);
+        intent.putExtra(AlarmClock.EXTRA_SKIP_UI, true);
+        intent.putExtra(AlarmClock.EXTRA_LENGTH, true);
+        startActivity(intent);
 
         finish();
     }
