@@ -25,11 +25,34 @@ public class DAO extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE EVENT (ID INTEGER PRIMARY KEY AUTOINCREMENT, date DATE, time DATE, resinSpent INTEGER, domain TEXT)");
+        db.execSQL("CREATE TABLE USER (ID INTEGER PRIMARY KEY AUTOINCREMENT, firstTime INTEGER)");
+        ContentValues cv = new ContentValues();
+        cv.put("firstTime", 1);
+        db.insert("USER", null, cv);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldV, int newV) {
 
+    }
+
+    public void updateUser(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("firstTime", 0);
+        db.update("USER", cv, "ID = ?", new String[]{"1"});
+    }
+
+    public boolean getUserFirstTime(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] params = new String[]{"1"};
+        Cursor cursor = db.rawQuery( "SELECT * FROM USER WHERE ID = ?",params);
+        if (cursor.moveToFirst()) {
+            return Integer.parseInt(cursor.getString(1)) == 1;
+        }
+        else{
+            return false;
+        }
     }
 
     public EventEntity addOne(EventEntity model){

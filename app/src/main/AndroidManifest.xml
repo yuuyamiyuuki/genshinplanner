@@ -13,6 +13,7 @@
         <activity android:name=".EventEditActivity"></activity>
         <activity android:name=".WeekViewActivity" />
         <activity android:name=".DomainViewActivity" />
+        <activity android:name=".onboarding.OnBoardingActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

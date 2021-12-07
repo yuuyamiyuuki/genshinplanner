@@ -5,24 +5,26 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.time.LocalDate;
-import java.time.YearMonth;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import static com.br.genshinplanner.CalendarUtils.daysInMonthArray;
 import static com.br.genshinplanner.CalendarUtils.monthYearFromDate;
 
+import com.br.genshinplanner.onboarding.OnBoardingActivity;
+import com.br.genshinplanner.sqlite.DAO;
+
 public class MainActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener
 {
     private TextView monthYearText;
     private RecyclerView calendarRecyclerView;
-
+    private final DAO dao = new DAO(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -32,6 +34,11 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
         initWidgets();
         CalendarUtils.selectedDate = LocalDate.now();
         setMonthView();
+
+        if (dao.getUserFirstTime()) {
+            dao.updateUser();
+            startActivity(new Intent(this, OnBoardingActivity.class));
+        }
     }
 
     private void initWidgets()

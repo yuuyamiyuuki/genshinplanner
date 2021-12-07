@@ -1,4 +1,5 @@
 <resources>
+    //domains
     <string name="app_name">GenshinPlanner</string>
     <string name="back"><![CDATA[<-]]></string>
     <string name="forward"><![CDATA[->]]></string>
@@ -22,5 +23,16 @@
 
     <string name="momiji">Momiji-Dyed Court</string>
     <string name="slumbering">Slumbering Court</string>
+    //domains
+
+    <string name="ob_header1">SIMPLE DOMAIN MANAGING</string>
+    <string name="ob_header2">LOW ON RESIN?</string>
+    <string name="ob_header3">ALARMS FOR EACH EVENT</string>
+
+    <string name="ob_get_started">GET STARTED</string>
+
+    <string name="ob_desc1">GenshinPlanner uses a simple calendar face to manage drop farming.</string>
+    <string name="ob_desc2">Each week has its own counter, so you can plan ahead your route.</string>
+    <string name="ob_desc3">"Each event creates a base alarm so you won't miss any precious resin!"</string>
 
 </resources>
