@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.br.genshinplanner.sqlite.DAO;
 
@@ -91,6 +92,11 @@ public class EventEditActivity extends AppCompatActivity
     }
 
     public void saveEventAction(View view) throws SQLException {
+
+        if(Objects.isNull(resinToSpendET.getText().toString()) || "".equals(resinToSpendET.getText().toString())){
+            Toast.makeText(this, "Please, add the resin to be spent.", Toast.LENGTH_SHORT).show();
+            return;
+        }
         String resinToSpend = resinToSpendET.getText().toString();
         Integer itemSelected =  (Integer) eventSpinner.getSelectedItem();
         Domain domain = Domain.getDailyDomains(CalendarUtils.selectedDate, this).get(itemSelected);
