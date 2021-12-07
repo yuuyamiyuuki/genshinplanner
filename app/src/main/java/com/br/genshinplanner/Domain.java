@@ -1,5 +1,8 @@
 package com.br.genshinplanner;
 
+import android.content.Context;
+import android.content.res.Resources;
+
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -20,108 +23,98 @@ public class Domain {
     private String domainName;
     private int domainImage;
 
-    public static List<Domain> getDomains(){
+    public static List<Domain> getDomains(Context context){
         List<Domain> domainList = new ArrayList<>();
 
         domainList.add(Domain.builder()
-                .domainName("Midsummer Courtyard")
+                .domainName(context.getString(R.string.midsummer))
                 .domainImage(R.drawable.midsummer)
                 .build());
 
         domainList.add(Domain.builder()
-                .domainName("Valley of Remembrance")
+                .domainName(context.getString(R.string.valley))
                 .domainImage(R.drawable.valley)
                 .build());
 
         domainList.add(Domain.builder()
-                .domainName("Peak of Vindagnyr")
+                .domainName(context.getString(R.string.peak))
                 .domainImage(R.drawable.peak)
                 .build());
 
         domainList.add(Domain.builder()
-                .domainName("Midsummer Courtyard")
-                .domainImage(R.drawable.midsummer)
-                .build());
-
-        domainList.add(Domain.builder()
-                .domainName("Midsummer Courtyard")
-                .domainImage(R.drawable.midsummer)
-                .build());
-
-        domainList.add(Domain.builder()
-                .domainName("Domain of Guyun")
+                .domainName(context.getString(R.string.guyun))
                 .domainImage(R.drawable.goyun)
                 .build());
 
         domainList.add(Domain.builder()
-                .domainName("Hidden Palace of Zhou Formula")
+                .domainName(context.getString(R.string.zhou))
                 .domainImage(R.drawable.zhouy)
                 .build());
 
         domainList.add(Domain.builder()
-                .domainName("Clear Pool and Mountain Cavern")
+                .domainName(context.getString(R.string.pool))
                 .domainImage(R.drawable.pool)
                 .build());
 
         domainList.add(Domain.builder()
-                .domainName("Ridge Watch")
+                .domainName(context.getString(R.string.ridge))
                 .domainImage(R.drawable.ridge)
                 .build());
 
         domainList.add(Domain.builder()
-                .domainName("Momiji-Dyed Court")
+                .domainName(context.getString(R.string.momiji))
                 .domainImage(R.drawable.momiji)
                 .build());
 
         domainList.add(Domain.builder()
-                .domainName("Slumbering Court")
+                .domainName(context.getString(R.string.slumbering))
                 .domainImage(R.drawable.slumbering)
                 .build());
 
         return domainList;
     }
 
-    public static List<Domain> getDailyWeaponDomains(LocalDate date){
+    public static List<Domain> getDailyWeaponDomains(LocalDate date, Context context){
         List<Domain> domainList = new ArrayList<>();
-        if(date.getDayOfWeek().equals(DayOfWeek.MONDAY) || date.getDayOfWeek().equals(DayOfWeek.THURSDAY) || date.getDayOfWeek().equals(DayOfWeek.SUNDAY)) {
+        if(CalendarUtils.checkIfMondayThursday(date)) {
             domainList.add(Domain.builder()
-                    .domainName("Cecilia Garden")
+                    .domainName(context.getString(R.string.cecilia))
                     .domainImage(R.drawable.ceciliamondaythursday)
                     .build());
             domainList.add(Domain.builder()
-                    .domainName("Hidden Palace of Lianshan Formula")
+                    .domainName(context.getString(R.string.lianshan))
                     .domainImage(R.drawable.lianshanmondaythursday)
                     .build());
             domainList.add(Domain.builder()
-                    .domainName("Court of Flowing Sand")
+                    .domainName(context.getString(R.string.flowing))
                     .domainImage(R.drawable.flowingmondaythursday)
                     .build());
         }
-        if(date.getDayOfWeek().equals(DayOfWeek.TUESDAY) || date.getDayOfWeek().equals(DayOfWeek.FRIDAY) || date.getDayOfWeek().equals(DayOfWeek.SUNDAY)) {
+        if(CalendarUtils.checkIfTuesdayFriday(date)) {
             domainList.add(Domain.builder()
-                    .domainName("Cecilia Garden")
+                    .domainName(context.getString(R.string.cecilia))
                     .domainImage(R.drawable.ceciliatuesdayfriday)
                     .build());
             domainList.add(Domain.builder()
-                    .domainName("Hidden Palace of Lianshan Formula")
+                    .domainName(context.getString(R.string.lianshan))
                     .domainImage(R.drawable.lianshantuesdayfriday)
                     .build());
             domainList.add(Domain.builder()
-                    .domainName("Court of Flowing Sand")
+                    .domainName(context.getString(R.string.flowing))
                     .domainImage(R.drawable.flowingtuesdayfriday)
                     .build());
         }
-        if(date.getDayOfWeek().equals(DayOfWeek.WEDNESDAY) || date.getDayOfWeek().equals(DayOfWeek.SATURDAY) || date.getDayOfWeek().equals(DayOfWeek.SUNDAY)) {
+        if(CalendarUtils.checkIfWednesdaySaturday(date)) {
             domainList.add(Domain.builder()
-                    .domainName("Cecilia Garden")
+                    .domainName(context.getString(R.string.cecilia))
                     .domainImage(R.drawable.ceciliawednesdaysaturday)
                     .build());
             domainList.add(Domain.builder()
-                    .domainName("Hidden Palace of Lianshan Formula")
+                    .domainName(context.getString(R.string.lianshan))
                     .domainImage(R.drawable.lianshanwednesdaysaturday)
                     .build());
             domainList.add(Domain.builder()
-                    .domainName("Court of Flowing Sand")
+                    .domainName(context.getString(R.string.flowing))
                     .domainImage(R.drawable.flowingwednesdaysaturday)
                     .build());
         }
@@ -129,47 +122,47 @@ public class Domain {
         return domainList;
     }
 
-    public static List<Domain> getDailyTalentDomains(LocalDate date){
+    public static List<Domain> getDailyTalentDomains(LocalDate date, Context context){
         List<Domain> domainList = new ArrayList<>();
-        if(date.getDayOfWeek().equals(DayOfWeek.MONDAY) || date.getDayOfWeek().equals(DayOfWeek.THURSDAY) || date.getDayOfWeek().equals(DayOfWeek.SUNDAY)) {
+        if(CalendarUtils.checkIfMondayThursday(date)) {
             domainList.add(Domain.builder()
-                    .domainName("Forsaken Rift")
+                    .domainName(context.getString(R.string.forsaken))
                     .domainImage(R.drawable.forsakenmondaythursday)
                     .build());
             domainList.add(Domain.builder()
-                    .domainName("Taishan Mansion")
+                    .domainName(context.getString(R.string.taishan))
                     .domainImage(R.drawable.taishanmondaythursday)
                     .build());
             domainList.add(Domain.builder()
-                    .domainName("Violet Court")
+                    .domainName(context.getString(R.string.violet))
                     .domainImage(R.drawable.violetmondaythursday)
                     .build());
         }
-        if(date.getDayOfWeek().equals(DayOfWeek.TUESDAY) || date.getDayOfWeek().equals(DayOfWeek.FRIDAY) || date.getDayOfWeek().equals(DayOfWeek.SUNDAY)) {
+        if(CalendarUtils.checkIfTuesdayFriday(date)) {
             domainList.add(Domain.builder()
-                    .domainName("Forsaken Rift")
+                    .domainName(context.getString(R.string.forsaken))
                     .domainImage(R.drawable.forsakentuesdayfriday)
                     .build());
             domainList.add(Domain.builder()
-                    .domainName("Taishan Mansion")
+                    .domainName(context.getString(R.string.taishan))
                     .domainImage(R.drawable.taishantuesdayfriday)
                     .build());
             domainList.add(Domain.builder()
-                    .domainName("Violet Court")
+                    .domainName(context.getString(R.string.violet))
                     .domainImage(R.drawable.violettuesdayfriday)
                     .build());
         }
-        if(date.getDayOfWeek().equals(DayOfWeek.WEDNESDAY) || date.getDayOfWeek().equals(DayOfWeek.SATURDAY) || date.getDayOfWeek().equals(DayOfWeek.SUNDAY)) {
+        if(CalendarUtils.checkIfWednesdaySaturday(date)) {
             domainList.add(Domain.builder()
-                    .domainName("Forsaken Rift")
+                    .domainName(context.getString(R.string.forsaken))
                     .domainImage(R.drawable.forsakenwednesdaysaturday)
                     .build());
             domainList.add(Domain.builder()
-                    .domainName("Taishan Mansion")
+                    .domainName(context.getString(R.string.taishan))
                     .domainImage(R.drawable.taishanwednesdaysaturday)
                     .build());
             domainList.add(Domain.builder()
-                    .domainName("Violet Court")
+                    .domainName(context.getString(R.string.violet))
                     .domainImage(R.drawable.violetwednesdaysaturday)
                     .build());
         }
@@ -177,10 +170,10 @@ public class Domain {
         return domainList;
     }
 
-    public static List<Domain> getDailyDomains(LocalDate date){
-        List<Domain> dateDomains = Domain.getDomains();
-        dateDomains.addAll(Domain.getDailyWeaponDomains(date));
-        dateDomains.addAll(Domain.getDailyTalentDomains(date));
+    public static List<Domain> getDailyDomains(LocalDate date, Context context){
+        List<Domain> dateDomains = Domain.getDomains(context);
+        dateDomains.addAll(Domain.getDailyWeaponDomains(date, context));
+        dateDomains.addAll(Domain.getDailyTalentDomains(date, context));
         return dateDomains;
     }
 

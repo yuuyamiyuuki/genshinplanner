@@ -89,5 +89,16 @@ public class CalendarUtils
         return null;
     }
 
+    public static boolean checkIfMondayThursday(LocalDate date){
+        return date.getDayOfWeek().equals(DayOfWeek.MONDAY) || date.getDayOfWeek().equals(DayOfWeek.THURSDAY) || date.getDayOfWeek().equals(DayOfWeek.SUNDAY);
+    }
+
+    public static boolean checkIfTuesdayFriday(LocalDate date){
+        return date.getDayOfWeek().equals(DayOfWeek.TUESDAY) || date.getDayOfWeek().equals(DayOfWeek.FRIDAY) || date.getDayOfWeek().equals(DayOfWeek.SUNDAY);
+    }
+
+    public static boolean checkIfWednesdaySaturday(LocalDate date){
+        return date.getDayOfWeek().equals(DayOfWeek.WEDNESDAY) || date.getDayOfWeek().equals(DayOfWeek.SATURDAY) || date.getDayOfWeek().equals(DayOfWeek.SUNDAY);
+    }
 
 }

@@ -1,6 +1,5 @@
 plugins {
     id 'com.android.application'
-    id 'com.google.gms.google-services'
 }
 
 android {
@@ -39,7 +38,6 @@ dependencies {
     compileOnly "org.projectlombok:lombok:1.18.20"
     annotationProcessor 'org.projectlombok:lombok:1.18.20'
     implementation 'com.google.firebase:firebase-messaging:23.0.0'
-    implementation "com.android.support:support-compat:28.0.0"
 
 
 }

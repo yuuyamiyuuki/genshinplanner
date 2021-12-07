@@ -57,7 +57,7 @@ public class EventEditActivity extends AppCompatActivity
         resinToSpendET = findViewById(R.id.eventResin);
         eventSpinner = findViewById(R.id.eventSpinner);
         timePickerButton = findViewById(R.id.timePicker);
-        List<Domain> dateDomains = Domain.getDailyDomains(CalendarUtils.selectedDate);
+        List<Domain> dateDomains = Domain.getDailyDomains(CalendarUtils.selectedDate, this);
         domainAdapter = new DomainAdapter(this, dateDomains);
         eventSpinner.setAdapter(domainAdapter);
 
@@ -93,7 +93,7 @@ public class EventEditActivity extends AppCompatActivity
     public void saveEventAction(View view) throws SQLException {
         String resinToSpend = resinToSpendET.getText().toString();
         Integer itemSelected =  (Integer) eventSpinner.getSelectedItem();
-        Domain domain = Domain.getDailyDomains(CalendarUtils.selectedDate).get(itemSelected);
+        Domain domain = Domain.getDailyDomains(CalendarUtils.selectedDate, this).get(itemSelected);
 
         EventEntity event = dao.addOne(EventEntity.builder()
                 .date(CalendarUtils.selectedDate)

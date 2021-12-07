@@ -3,20 +3,24 @@
     <string name="back"><![CDATA[<-]]></string>
     <string name="forward"><![CDATA[->]]></string>
     <string name="week_resin_resin">Week Resin: {{resin}}</string>
-    <string-array name="domains">
+    <string name="cecilia">Cecilia Garden</string>
+    <string name="lianshan">Hidden Palace of Lianshan Formula</string>
+    <string name="flowing">Court of Flowing Sand</string>
 
-        <item>Midsummer Courtyard</item>
-        <item>Valley of Remembrance</item>
-        <item>Peak of Vindagnyr</item>
+    <string name="forsaken">Forsaken Rift</string>
+    <string name="taishan">Taishan Mansion</string>
+    <string name="violet">Violet Court</string>
 
-        <item>Domain of Guyun</item>
-        <item>Hidden Palace of Zhou Formula</item>
-        <item>Clear Pool and Mountain Cavern</item>
-        <item>Ridge Watch</item>
+    <string name="midsummer">Midsummer Courtyard</string>
+    <string name="valley">Valley of Remembrance</string>
+    <string name="peak">Peak of Vindagnyr</string>
 
-        <item>Momiji-Dyed Court</item>
-        <item>Slumbering Court</item>
+    <string name="guyun">Domain of Guyun</string>
+    <string name="zhou">Hidden Palace of Zhou Formula</string>
+    <string name="pool">Clear Pool and Mountain Cavern</string>
+    <string name="ridge">Ridge Watch</string>
 
-    </string-array>
+    <string name="momiji">Momiji-Dyed Court</string>
+    <string name="slumbering">Slumbering Court</string>
 
 </resources>
