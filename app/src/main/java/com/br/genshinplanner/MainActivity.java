@@ -77,6 +77,11 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
     {
         startActivity(new Intent(this, WeekViewActivity.class));
     }
+
+    public void domainsAction(View view)
+    {
+        startActivity(new Intent(this, DomainViewActivity.class));
+    }
 }
 
 

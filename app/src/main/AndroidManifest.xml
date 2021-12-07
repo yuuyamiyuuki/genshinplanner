@@ -12,6 +12,7 @@
         android:theme="@style/Theme.GenshinPlanner">
         <activity android:name=".EventEditActivity"></activity>
         <activity android:name=".WeekViewActivity" />
+        <activity android:name=".DomainViewActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

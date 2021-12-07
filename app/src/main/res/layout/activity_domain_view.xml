@@ -6,27 +6,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".WeekViewActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginBottom="0dp"
-        android:layout_marginTop="0dp">
-
-        <Button
-            android:layout_width="wrap_content"
+        android:layout_marginTop="20dp">
+        <TextView
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Weekly"
-            android:textColor="@color/blue"
+            android:layout_weight="1"
+            ></TextView>
+
+
+        <TextView
+            android:id="@+id/monthYearTV"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:text="Weekly Domains"
+            android:textSize="20sp"
+            android:textAlignment="center"
             android:fontFamily="@font/genshinfont"
-            android:background="@null"
-            android:textStyle="bold"
-            android:onClick="weeklyAction"
-            android:layout_marginLeft="40dp"
-            android:textSize="20sp"/>
+            android:textColor="@color/black"/>
 
         <TextView
             android:layout_width="0dp"
@@ -34,67 +38,10 @@
             android:layout_weight="1"
             ></TextView>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Domains"
-            android:textColor="@color/blue"
-            android:fontFamily="@font/genshinfont"
-            android:background="@null"
-            android:textStyle="bold"
-            android:onClick="domainsAction"
-            android:layout_marginRight="45dp"
-            android:textSize="20sp"/>
 
 
     </LinearLayout>
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:fontFamily="@font/genshinfont"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp">
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/back"
-            android:fontFamily="@font/genshinfont"
-            android:textColor="@color/blue"
-            android:background="@null"
-            android:textStyle="bold"
-            android:onClick="previousMonthAction"
-            android:textSize="20sp"/>
-
-        <TextView
-            android:id="@+id/monthYearTV"
-            android:layout_width="0dp"
-            android:layout_weight="2"
-            android:layout_height="wrap_content"
-            android:text="Feb 2021"
-            android:fontFamily="@font/genshinfont"
-            android:textSize="20sp"
-            android:textAlignment="center"
-            android:textColor="@color/black"/>
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/forward"
-            android:textColor="@color/blue"
-            android:fontFamily="@font/genshinfont"
-            android:background="@null"
-            android:textStyle="bold"
-            android:onClick="nextMonthAction"
-            android:textSize="20sp"/>
-
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -106,8 +53,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="SUN"
-            android:textColor="@color/gray"
             android:fontFamily="@font/genshinfont"
+            android:textColor="@color/gray"
             android:textAlignment="center"
             android:textSize="16sp"/>
 
@@ -117,8 +64,8 @@
             android:layout_weight="1"
             android:text="MON"
             android:textColor="@color/gray"
-            android:fontFamily="@font/genshinfont"
             android:textAlignment="center"
+            android:fontFamily="@font/genshinfont"
             android:textSize="16sp"/>
 
         <TextView
@@ -137,8 +84,8 @@
             android:layout_weight="1"
             android:text="WED"
             android:textColor="@color/gray"
-            android:textAlignment="center"
             android:fontFamily="@font/genshinfont"
+            android:textAlignment="center"
             android:textSize="16sp"/>
 
         <TextView
@@ -146,8 +93,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="THUR"
-            android:fontFamily="@font/genshinfont"
             android:textColor="@color/gray"
+            android:fontFamily="@font/genshinfont"
             android:textAlignment="center"
             android:textSize="16sp"/>
 
@@ -156,8 +103,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="FRI"
-            android:textColor="@color/gray"
             android:fontFamily="@font/genshinfont"
+            android:textColor="@color/gray"
             android:textAlignment="center"
             android:textSize="16sp"/>
 
@@ -167,8 +114,8 @@
             android:layout_weight="1"
             android:text="SAT"
             android:textColor="@color/gray"
-            android:textAlignment="center"
             android:fontFamily="@font/genshinfont"
+            android:textAlignment="center"
             android:textSize="16sp"/>
 
 
@@ -176,9 +123,17 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/calendarRecyclerView"
+        android:id="@+id/domainWeekRecycleView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <ListView
+        android:id="@+id/domainListView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"/>
+
 
 </LinearLayout>
 

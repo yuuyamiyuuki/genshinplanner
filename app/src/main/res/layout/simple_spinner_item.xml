@@ -6,18 +6,22 @@
 
 <ImageView
     android:id="@+id/itemImage"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="55dp"
+    android:layout_height="55dp"
+    android:scaleType="fitXY"/>
     android:padding="10dp"
+    android:layout_gravity="center"
     android:textAlignment="center"/>
     <TextView
         android:id="@+id/itemName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
+        android:singleLine="true"
         android:fontFamily="@font/genshinfont"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textAlignment="center"
+        android:layout_gravity="center"
         android:textColor="@color/black"/>
 
 
