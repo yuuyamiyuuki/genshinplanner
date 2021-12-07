@@ -21,6 +21,7 @@ import java.sql.SQLException;
 import java.sql.Time;
 import java.time.LocalTime;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Objects;
 
 public class EventEditActivity extends AppCompatActivity
@@ -54,7 +55,8 @@ public class EventEditActivity extends AppCompatActivity
         resinToSpendET = findViewById(R.id.eventResin);
         eventSpinner = findViewById(R.id.eventSpinner);
         timePickerButton = findViewById(R.id.timePicker);
-        domainAdapter = new DomainAdapter(this, Domain.getDomains());
+        List<Domain> dateDomains = Domain.getDailyDomains(CalendarUtils.selectedDate);
+        domainAdapter = new DomainAdapter(this, dateDomains);
         eventSpinner.setAdapter(domainAdapter);
 
         eventSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -89,7 +91,7 @@ public class EventEditActivity extends AppCompatActivity
     public void saveEventAction(View view) throws SQLException {
         String resinToSpend = resinToSpendET.getText().toString();
         Integer itemSelected =  (Integer) eventSpinner.getSelectedItem();
-        Domain domain = Domain.getDomains().get(itemSelected);
+        Domain domain = Domain.getDailyDomains(CalendarUtils.selectedDate).get(itemSelected);
 
         dao.addOne(EventEntity.builder()
                 .date(CalendarUtils.selectedDate)

@@ -50,7 +50,7 @@ public class EventAdapter extends ArrayAdapter<EventEntity>
         ImageView eventCellIV = convertView.findViewById(R.id.eventCellIV);
         Button delete = convertView.findViewById(R.id.btnDelete);
 
-        Optional<Domain> domain = Domain.getDomains().stream().filter(d -> d.getDomainName().equals(event.getDomain())).findFirst();
+        Optional<Domain> domain = Domain.getDailyDomains(CalendarUtils.selectedDate).stream().filter(d -> d.getDomainName().equals(event.getDomain())).findFirst();
         if(domain.isPresent()) {
             String eventTitle = domain.get().getDomainName() + " @ " + CalendarUtils.formattedTime(event.getTime()) + ": Resin -> " + event.getResinSpent();
             eventCellTV.setText(eventTitle);
