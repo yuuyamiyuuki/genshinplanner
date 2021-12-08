@@ -16,12 +16,15 @@ import java.util.List;
 import java.util.Objects;
 
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 public class DomainAdapter extends BaseAdapter
 {
     private Context context;
     private List<Domain> domainList;
+    private int layout;
+
 
     @Override
     public int getCount() {
@@ -40,12 +43,13 @@ public class DomainAdapter extends BaseAdapter
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        View rootView = LayoutInflater.from(context).inflate(R.layout.simple_spinner_item, viewGroup,false);
+        View rootView = LayoutInflater.from(context).inflate(layout, viewGroup,false);
 
         TextView name = rootView.findViewById(R.id.itemName);
         ImageView image = rootView.findViewById(R.id.itemImage);
 
         name.setText(domainList.get(i).getDomainName());
+        name.setTooltipText(domainList.get(i).getDomainLocation());
         image.setImageResource(domainList.get(i).getDomainImage());
         return rootView;
     }

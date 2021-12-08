@@ -73,7 +73,7 @@ public class DomainViewActivity extends AppCompatActivity implements CalendarAda
     {
         List<Domain> domains = Domain.getDailyWeaponDomains(CalendarUtils.selectedDate, this);
         domains.addAll(Domain.getDailyTalentDomains(CalendarUtils.selectedDate, this));
-        DomainAdapter domainAdapter = new DomainAdapter(getApplicationContext(), domains);
+        DomainAdapter domainAdapter = new DomainAdapter(getApplicationContext(), domains, R.layout.spinner_with_map);
         domainListView.setAdapter(domainAdapter);
     }
 

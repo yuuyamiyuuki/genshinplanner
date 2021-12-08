@@ -22,6 +22,7 @@
         android:textSize="15sp"
         android:textAlignment="center"
         android:layout_gravity="center"
+        android:tooltipText="tooltip"
         android:textColor="@color/black"/>
 
 

@@ -1,28 +1,54 @@
 <resources>
-    //domains
     <string name="app_name">GenshinPlanner</string>
     <string name="back"><![CDATA[<-]]></string>
     <string name="forward"><![CDATA[->]]></string>
     <string name="week_resin_resin">Week Resin: {{resin}}</string>
+
+    //domains
     <string name="cecilia">Cecilia Garden</string>
+    <string name="ceciliaLocation">Wolvendom, Windwail Highland, Mondstadt</string>
+
     <string name="lianshan">Hidden Palace of Lianshan Formula</string>
+    <string name="lianshanLocation">Mingyun Village, Qiongji Estuary, Liyue</string>
+
     <string name="flowing">Court of Flowing Sand</string>
+    <string name="flowingLocation">Mt. Yougou, Narukami Island, Inazuma</string>
 
     <string name="forsaken">Forsaken Rift</string>
+    <string name="forsakenLocation">Springvale, Windwail Highland, Mondstadt</string>
+
     <string name="taishan">Taishan Mansion</string>
+    <string name="taishanLocation">Jueyun Karst, Minlin, Liyue</string>
+
     <string name="violet">Violet Court</string>
+    <string name="violetLocation">Kannazuka, Inazuma</string>
 
     <string name="midsummer">Midsummer Courtyard</string>
+    <string name="midsummerLocation">Starsnatch Cliff, Starfell Valley, Mondstadt</string>
+
     <string name="valley">Valley of Remembrance</string>
+    <string name="valleyLocation">Dawn Winery, Windwail Highland, Mondstadt</string>
+
     <string name="peak">Peak of Vindagnyr</string>
+    <string name="peakLocation">Skyfrost Nail, Dragonspine, Mondstadt</string>
 
     <string name="guyun">Domain of Guyun</string>
+    <string name="guyunLocation">Guyun Stone Forest, Sea of Clouds, Liyue</string>
+
     <string name="zhou">Hidden Palace of Zhou Formula</string>
+    <string name="zhouLocation">Wuwang Hill, Bishui Plain, Liyue</string>
+
     <string name="pool">Clear Pool and Mountain Cavern</string>
+    <string name="poolLocation">Mt. Aocang, Minlin, Liyue</string>
+
     <string name="ridge">Ridge Watch</string>
+    <string name="ridgeLocation">Bishui Plain, Liyue</string>
 
     <string name="momiji">Momiji-Dyed Court</string>
+    <string name="momijiLocation">Yashiori Island, Inazuma</string>
+
     <string name="slumbering">Slumbering Court</string>
+    <string name="slumberingLocation">Seirai Island, Inazuma</string>
     //domains
 
     <string name="ob_header1">SIMPLE DOMAIN MANAGING</string>

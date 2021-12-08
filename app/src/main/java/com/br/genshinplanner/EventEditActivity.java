@@ -59,7 +59,7 @@ public class EventEditActivity extends AppCompatActivity
         eventSpinner = findViewById(R.id.eventSpinner);
         timePickerButton = findViewById(R.id.timePicker);
         List<Domain> dateDomains = Domain.getDailyDomains(CalendarUtils.selectedDate, this);
-        domainAdapter = new DomainAdapter(this, dateDomains);
+        domainAdapter = new DomainAdapter(this, dateDomains, R.layout.simple_spinner_item);
         eventSpinner.setAdapter(domainAdapter);
 
         eventSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
